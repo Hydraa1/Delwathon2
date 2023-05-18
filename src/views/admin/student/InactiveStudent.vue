@@ -1,12 +1,12 @@
 <script setup>
-  import { reactive } from 'vue'
+//   import { reactive } from 'vue'
 //   import Multiselect from 'vue-multiselect'
-const options = [
-        { value: 'option1', text: 'Option 1' },
-        { value: 'option2', text: 'Option 2' },
-        { value: 'option3', text: 'Option 3' }
-    ]
-  const state = reactive({})
+// const options = [
+//         { value: 'option1', text: 'Option 1' },
+//         { value: 'option2', text: 'Option 2' },
+//         { value: 'option3', text: 'Option 3' }
+//     ]
+// const state = reactive({})
 
 </script>
 <template>

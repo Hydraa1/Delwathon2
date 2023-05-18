@@ -12,7 +12,7 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 import 'tailwindcss/tailwind.css';
 
 // date
-import 'flowbite/css/flowbite.css';
+// import 'flowbite/css/flowbite.css';
 
 // import 'flowbite-datepicker';
 // import Datepicker from 'flowbite-datepicker/Datepicker';
