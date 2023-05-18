@@ -1,7 +1,7 @@
 <template>
 
 
-    <div class="py-10  bg-blue-100 rounded-sm md:bg-transparent md:rounded-none">
+    <div class="py-10 mb-10 px-5 md:place-content-center bg-blue-100 rounded-sm md:bg-transparent md:rounded-none">
         <h3 class="text-ed-green font-semibold text-center uppercase pb-1">Built for everyone </h3>
         <h3 class="text-4xl md:text-5xl font-semibold text-center my-3 leading-tight">Built for teams from
             1 to 1,000+ </h3>
@@ -12,9 +12,12 @@
                     class="first:border-b-4 border-[#00A859] mb-2 pb-1 text-[#4F4F4F] whitespace-nowrap" :class="showbody3 == team.id  ? 'border-b-4' : 'border-none'">{{ team.name }}</button>
             </div>
         </div>
-        <div class="flex flex-row-reverse">
-            <div class="w-full text-[#4F4F4F] md:w-1/2 lg:w-[40%] md:pr-16" >
-                <div v-for="detail of teamDetails" v-bind:key="detail.id">
+        <div class="flex justify-center">
+            <div class="relative w-full md:w-1/2  lg:w-[60%] hidden md:block">
+                <img src="../assets/New Macbook Pro Mockup Front View 1image5.png" class="h-[600px] w-full object-cover rm-drag rounded-3xl" />
+            </div>
+            <div class="md:my-auto  w-full text-[#4F4F4F] md:w-1/2 lg:w-[40%]  md:pr-16" >
+                <div v-for="detail of teamDetails" v-bind:key="detail.id" class="md:mb-10">
                     <div v-if="showbody3 == detail.id">
                         <div  v-for="subdetail of detail.subdetails" :key="subdetail.title" class="flex space-x-3 mb-5">
                             <i class='bx mt-1' :class="subdetail.icon"></i>
@@ -26,11 +29,9 @@
                     </div>
                 </div>
             </div>    
-            <div class="relative w-full md:w-1/2 lg:w-[60%] md:h-[674px] pl-0 ml-0  lg:pl-0 hidden md:block">
-                <img src="../assets/New Macbook Pro Mockup Front View 1image5.png" class="h-full w-full object-cover rm-drag rounded-3xl" />
-            </div>
+            
         </div>
-        <div class="my-8 flex space-x-10">
+        <div class="my-8 flex space-x-10 md:place-content-end md:my-0 md:mr-14 md:-mt-10">
             <button
                 className="drop-shadow-xl hover:bg-green-200 transition duration-600 ease-in-out py-2 px-4 outline-none text-sm bg-white text-ed-green flex items-center space-x-2 font-semibold rounded-md border border-ed-green">
                 <span>Get Started</span>
