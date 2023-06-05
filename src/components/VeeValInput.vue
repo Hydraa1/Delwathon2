@@ -1,10 +1,13 @@
 <script setup>
 import {useField} from 'vee-validate';
+import Multiselect from '@vueform/multiselect';
+
 const props = defineProps({
 	name: {
 		type: String,
 		required: true,
 	},
+	val:String,
 	class: String,
 	type: String,
 	label: String,
@@ -31,11 +34,19 @@ console.log(value)
 		<textarea v-else-if="type == 'textarea'" v-model="value" :type="type ?? 'text'" rows="10"
 			class="app-input w-full text-sm placeholder:text-[#A4A2A2] dark:placeholder:text-[#4F4F4F] h-full"
 			:placeholder="placeholder" :class="type == 'file' ? 'p-0 pr-2 file:bg-[#A4A2A2] file:' : ''"></textarea>
+		<Multiselect v-else-if="type == 'tags'"
+			class="text-sm rounded-lg"
+			v-model="section"
+			:options="options"
+			ref="multiple"
+			mode="tags"
+		/>
 		<div v-else>
 			<input v-model="value" :type="type ?? 'text'"
 				class="app-input w-full text-sm placeholder:text-[#A4A2A2] dark:placeholder:text-[#4F4F4F]"
-				:placeholder="placeholder" :class="type == 'file' ? 'p-0 pr-2 file:bg-[#A4A2A2] file:' : ''" />
+				:placeholder="placeholder"  :class="type == 'file' ? 'p-0 pr-2 file:bg-[#A4A2A2] file:' : ''" />
 		</div>
 		<span class="text-xs text-red-600 mt-1">{{ error }}</span>
 	</div>
 </template>
+<style src="@vueform/multiselect/themes/default.css"></style>

@@ -5,15 +5,18 @@ import Swal from 'sweetalert2'
 import Multiselect from '@vueform/multiselect';
 
 const classes = [
-    {branch:"Delwathon school & Primary School", class_name:"Green", section:"Blue"},
-    {branch:"Delwathon school & Primary School", class_name:"blue", section:"Grenn"},
-    {branch:"Delwathon school & Primary School", class_name:"London", section:"Red"},
-    {branch:"Delwathon school & Primary School", class_name:"German", section:"Brown"}
+    {branch:"Delwathon Foundation", class_name:"Nudery 1", section:"A"},
+    {branch:"Delwathon Foundation", class_name:"Nudery 2", section:"A/B"},
+    {branch:"Delwathon Foundation", class_name:"Primary 1", section:"A/B"},
+    {branch:"Delwathon College", class_name:"Jss 1", section:"Green/Blue"},
+    {branch:"Delwathon College", class_name:"Jss 2", section:"Green/Blue"}
+    
 ]
 const options = [
-        'Batman',  
-        'Robin',
-        'Joker'
+        'A',  
+        'B',
+        'Blue',
+        'Green'
     ]
 
 const state = reactive({
@@ -138,10 +141,10 @@ onMounted(() => {
                             <td class="border border-slate-300 p-2  md:p-1"><div class="text-center"> {{ data.class_name }}</div></td>
                             <td class="border border-slate-300 p-2  md:p-1"><div class="text-center">{{ data.section }}</div></td>
                             <td class="border border-slate-300 p-2  md:p-1">
-                                <div class="text-center space-x-1 flex justify-center">
-                                    <button @click="edit(data)" class="bg-[#00A8594D] text-ed-green hover:bg-ed-green hover:text-white transition p-3 rounded-lg">
+                                <div class="text-center space-x-1 py-2 flex justify-center">
+                                    <button @click="edit(data)" class="bg-[#00A8594D] text-ed-green hover:bg-ed-green hover:text-white transition h-7 w-7 rounded-lg">
                                         <i class="bx bx-edit"></i></button>
-                                    <button @click="removeClass(data)" class="bg-red-300 hover:bg-red-600 hover:text-white transition p-3 rounded-lg text-red-700"><i class="bx bx-trash"></i></button>
+                                    <button @click="removeClass(data)" class="bg-red-300 hover:bg-red-600 hover:text-white transition h-7 w-7 rounded-lg text-red-700"><i class="bx bx-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -154,7 +157,7 @@ onMounted(() => {
 
         <!-- side over here right hand side-->
        <TransitionRoot :show="state.open">
-        <Dialog as="div" class="relative z-10 dark:bg-gray-700" @close="state.open= false">
+        <Dialog as="div" class="relative z-40 dark:bg-gray-700" @close="state.open= false">
           <TransitionChild as="template" enter="ease-in-out duration-500" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in-out duration-500" leave-from="opacity-100" leave-to="opacity-0">
             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
           </TransitionChild>
@@ -175,21 +178,21 @@ onMounted(() => {
                     </TransitionChild>
                     <div class="font flex h-full flex-col overflow-y-scroll dark:bg-gray-700  bg-white py-6 shadow-xl">
                       <div class="px-4 sm:px-6">
-                        <DialogTitle class="text-base font-medium leading-6 text-gray-900 dark:text-white">Update</DialogTitle>
+                        <DialogTitle class="text-base font-medium leading-6 text-gray-900 dark:text-white">Edit Nursery</DialogTitle>
                       </div>
                       <div class="relative mt-6 flex-1 px-4 sm:px-6">
                          <!-- The inputs is iniside sideoverInput -->
                         <div class="w-full">
-                            <label for="small" class="block mb-2 text-sm font-nomal text-gray-900 dark:text-white">Branch *</label>
-                            <select v-model="branch" id="small" class="block w-full  px-2 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <label for="small" class="block mb-2 text-sm font-nomal text-gray-900 dark:text-white">Branch <span class="text-red-400 font font-bold text-1xl">*</span></label>
+                            <select  id="small" class="block w-full  px-2 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Select Branch</option>
-                                <option value="US">Delwathon Group of School</option>
-                                <option value="DE">Germany</option>
+                                <option value="US">Delwathon Foundation</option>
+                                <option value="DE">Delwathon College</option>
                             </select>
                         </div>
                         <!--  -->
                         <div class="w-full mt-4">
-                            <label for="small" class="block mb-2 text-sm font-nomal text-gray-900 dark:text-white">Class name *</label>
+                            <label for="small" class="block mb-2 text-sm font-nomal text-gray-900 dark:text-white">Class name <span class="text-red-400 font font-bold text-1xl">*</span></label>
                             <input type="text" v-model="classname"  class="block w-full  px-2 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="class name">
                         </div>
                         <!--  -->

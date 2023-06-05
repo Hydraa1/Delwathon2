@@ -13,6 +13,7 @@ export const enrollStudentSchema = toFormValidator(
 		selection: zod.string().nonempty('Selection is required'),
 		firstname: zod.string().nonempty('First name is required'),
 		lastname: zod.string().nonempty('Last name is required'),
+		guardiance: zod.string().nonempty('guardiance is required')
 	})
 );
 
@@ -50,6 +51,18 @@ export const promotionSchema = toTypedSchema(
 		branch: zod.string().nonempty('session is required'),
 		classs: zod.string().nonempty('branch is required'),
 		section: zod.string().nonempty('dept is required'),
-		passmark: zod.string().nonempty('class is required'),
+		passmarks: zod.string().nonempty('class is required'),
 	})
 )
+
+export const guardianSchema = toTypedSchema(
+	zod.object({
+		firstname: zod.string().nonempty('firstname is required'),
+		lastname: zod.string().nonempty('lastname is required'),
+		relationship: zod.string().nonempty('relationship is required'),
+		occupation: zod.string().nonempty('occupation is require'),
+		phone: zod.string().nonempty('phone is require'),
+		email: zod.string().nonempty('email is require')
+	})
+)
+

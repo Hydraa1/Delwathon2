@@ -4,34 +4,56 @@ import {Dialog, DialogPanel, TransitionChild, TransitionRoot} from '@headlessui/
 import VeeValInput from '../../../components/VeeValInput.vue';
 import {assignSubjectSchema} from '../../../schemas'
 import {useForm} from 'vee-validate';
+import Multiselect from '@vueform/multiselect';
+
+
 const open = ref(false)
 const classes = [
 	{
-		branch: "Dathon Limited", class: "Nursery 1", section: "Blue", subjects: [
+		branch: "Dathon Foundation", class: "Nursery 1", section: "A", subjects: [
 			"English Language",
 			"Mathematics",
+			"Quantative Reasoning",
 			"Handwriting",
 		]
 	},
 	{
-		branch: "Dathon Limited", class: "Nursery 1", section: "Blue", subjects: [
+		branch: "Dathon Foundation", class: "Nursery 2", section: "A/B", subjects: [
 			"English Language",
 			"Mathematics",
+			"Quantative Reasoning",
 			"Handwriting",
 		]
 	},
 	{
-		branch: "Dathon Limited", class: "Nursery 1", section: "Blue", subjects: [
+		branch: "Dathon Foundation", class: "Primary 1", section: "A/B", subjects: [
 			"English Language",
 			"Mathematics",
+			"Quantative Reasoning",
 			"Handwriting",
+		]
+	},
+	{
+		branch: "Dathon College", class: "Jss 1", section: "Blue/Green", subjects: [
+			"English Language",
+			"Mathematics",
+			"Basic Science"
+		]
+	},
+	{
+		branch: "Dathon College", class: "Jss 2", section: "Blue/Green", subjects: [
+			"English Language",
+			"Mathematics",
+			"Basic Science"
 		]
 	},
 
 ]
+ 
 const state = reactive({
 	data: classes,
-	defaultAssignValues: {}
+	defaultAssignValues: {},
+	// options
 })
 const branchModal = () => {
 	open.value = true
@@ -56,10 +78,15 @@ const newSubjectInputs = [
 		]
 	},
 	{
-		name: "class", label: "Class", type: "select", required: true, w: 'w-full', options: [
-			{text: "Choose...", value: undefined},
-			{text: "Nursery 1", value: 'Nursery 1'},
-			{text: "Choose...", value: '3'},
+		name: "class", label: "Class", type: "tags", required: true, w: 'w-full', options: [
+			'Nursery 1 - A', 
+			'Nursery 2 - A',
+			'Primary 1 - A', 
+			'Primary 1 - B',
+			'JSS 1 - Blue', 
+			'JSS 1 - Green', 
+			'JSS 2 - Blue', 
+			'JSS 2 - Green'
 		]
 	},
 	{
@@ -142,9 +169,9 @@ const submit = handleSubmit(values => {
 					</tr>
 				</thead>
 				<tbody class="align-top">
-					<tr v-for="(classObj, i) in state.data" :key="i">
+					<tr v-for="(classObj, i) in state.data" :key="i" >
 						<td class="border-y border-x-0 border-[#ccc] ed-border p-2">
-							{{ i }}
+							{{ i+1 }}
 						</td>
 						<td class="border-y border-x-0 border-[#ccc] ed-border p-2">
 							{{ classObj.branch }}
@@ -163,13 +190,13 @@ const submit = handleSubmit(values => {
 								</li>
 							</ul>
 						</td>
-						<td class="border-y border-x-0 border-[#ccc] ed-border p-2">
-							<div class=" space-x-1 flex">
+						<td class="border-y border-x-0 border-[#ccc] ed-border p-2 ">
+							<div class=" space-x-1 flex my-auto">
 								<button @click="() => { setValues(classObj); branchModal() }"
-									class="bg-[#00A8594D] text-ed-green hover:bg-ed-green hover:text-white transition rounded-lg h-7 w-7 flex items-center justify-center"><i
+									class="bg-[#00A8594D]  text-ed-green hover:bg-ed-green hover:text-white transition rounded-lg h-7 w-7 flex items-center justify-center"><i
 										class="bx bx-edit"></i></button>
 								<button
-									class="bg-[#FF00004D] text-[#FF0000] hover:bg-[#FF0000] hover:text-white transition rounded-lg h-7 w-7 flex items-center justify-center"><i
+									class="bg-[#FF00004D]  text-[#FF0000] hover:bg-[#FF0000] hover:text-white transition rounded-lg h-7 w-7 flex items-center justify-center"><i
 										class="bx bx-trash"></i></button>
 							</div>
 						</td>
@@ -201,7 +228,7 @@ const submit = handleSubmit(values => {
 						<DialogPanel
 							class="relative transform overflow-hidden rounded-lg  text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
 							<!--ADD content here  -->
-							<div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 dark:bg-gray-800 dark:text-white">
+							<div class="bg-white px-4 pb-4 pt-5 sm:p-6 overflow-y-auto sm:pb-4 dark:bg-gray-800 dark:text-white">
 								<!-- grid grid-cols-1 md:grid-cols-1 -->
 								<h4 class="font-medium font">Add Subject <i class="fa fa-plus-circle text-green-500"></i>
 								</h4>
@@ -230,3 +257,4 @@ const submit = handleSubmit(values => {
 		</Dialog>
 	</TransitionRoot>
 </template>
+<style src="@vueform/multiselect/themes/default.css"></style>

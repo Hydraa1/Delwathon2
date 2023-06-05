@@ -4,15 +4,13 @@ import {reactive, ref} from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import Swal from 'sweetalert2'
 const department = [
-    {branch:"Delwathon school & Primary School", dept_name:"Green"},
-    {branch:"Delwathon school & Secondary School", dept_name:"blue"},
-    {branch:"Delwathon school & Primary School", dept_name:"London"},
-    {branch:"Delwathon school & Primary School", dept_name:"German"}
+    {branch:"Delwathon Foundation", dept_name:"General"},
+    {branch:"Delwathon College", dept_name:"General",dept_name1:"Science",dept_name2:"Commercial", dept_name3:"Art"},
 ]
 
-const dept_input =[
+// const dept_input =[
 
-]
+// ]
 const open = ref(false)
 const state = reactive({
     data:department
@@ -95,8 +93,8 @@ const removeDept = (data)=>{
                 <table class="border-collapse border table-auto border-slate-400 w-full p-6 ">
                     <thead class="" style="font-size:13px">
                         <tr class="p-2">
-                            <th class="border border-slate-300 md:p-2">S/N</th>
-                            <th class="border border-slate-300 px-6 py-3 md:p-2">Branch Name</th>
+                            <th class="border border-slate-300 p-2 md:p-2">S/N</th>
+                            <th class="border border-slate-300 px-8 py-2 md:p-2">Branch Name</th>
                             <th class="border border-slate-300 px-6 py-4 md:p-2">Department Name</th>
                             <th class="border border-slate-300 px-6 py-4 md:p-2">Action</th>
                         </tr>
@@ -105,12 +103,17 @@ const removeDept = (data)=>{
                         <tr v-for="(data, i) of state.data" :key="i">
                             <td class="border border-slate-300 p-2 md:p-1"> <div class="text-center">{{ i+1 }}</div></td>
                             <td class="border border-slate-300 p-2  md:p-1"><div class="text-center">{{ data.branch }}</div></td>
-                            <td class="border border-slate-300 p-2  md:p-1"><div class="text-center"> {{ data.dept_name }}</div></td>
+                            <td class="border border-slate-300 p-2  md:p-1  text-center"><div class=""> 
+                              <p>{{ data.dept_name }}</p>
+                              <p>{{ data.dept_name1 }}</p>
+                              <p>{{ data.dept_name2 }}</p>
+                              <p>{{ data.dept_name3 }}</p>
+                              </div></td>
                             <td class="border border-slate-300 p-2  md:p-1">
-                                <div class="text-center space-x-1 flex justify-center">
-                                    <button @click="editHandler" class="bg-[#00A8594D] text-ed-green hover:bg-ed-green hover:text-white transition p-3 rounded-lg">
+                                <div class="text-center space-x-1 flex py-2 justify-center">
+                                    <button @click="editHandler" class="bg-[#00A8594D] text-ed-green hover:bg-ed-green hover:text-white transition h-7 w-7 rounded-lg">
                                         <i class="bx bx-edit"></i></button>
-                                    <button @click="removeDept(data)" class="bg-red-300 hover:bg-red-600 hover:text-white transition p-3 rounded-lg text-red-700"><i class="bx bx-trash"></i></button>
+                                    <button @click="removeDept(data)" class="bg-red-300 hover:bg-red-600 hover:text-white transition h-7 w-7 rounded-lg text-red-700"><i class="bx bx-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -123,7 +126,7 @@ const removeDept = (data)=>{
 
         <!-- side over here right hand side-->
        <TransitionRoot :show="open">
-        <Dialog as="div" class="relative z-10 dark:bg-gray-700" @close="open= false">
+        <Dialog as="div" class="relative z-40 dark:bg-gray-700" @close="open= false">
           <TransitionChild as="template" enter="ease-in-out duration-500" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in-out duration-500" leave-from="opacity-100" leave-to="opacity-0">
             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
           </TransitionChild>
@@ -149,16 +152,16 @@ const removeDept = (data)=>{
                       <div class="relative mt-6 flex-1 px-4 sm:px-6">
                          <!-- The inputs is iniside sideoverInput -->
                         <div class="w-full">
-                            <label for="small" class="block mb-2 text-sm font-nomal text-gray-900 dark:text-white">Branch *</label>
+                            <label for="small" class="block mb-2 text-sm font-nomal text-gray-900 dark:text-white">Branch <span class="text-red-400 font font-bold text-1xl">*</span></label>
                             <select id="small" class="block w-full  px-2 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Select Branch</option>
-                                <option value="US">Delwathon Group of School</option>
-                                <option value="DE">Germany</option>
+                                <option value="US">Delwathon Foundation</option>
+                                <option value="DE">Delwathon College</option>
                             </select>
                         </div>
                         <!--  -->
                         <div class="w-full mt-4">
-                            <label for="small" class="block mb-2 text-sm font-nomal text-gray-900 dark:text-white">Department name *</label>
+                            <label for="small" class="block mb-2 text-sm font-nomal text-gray-900 dark:text-white">Department name <span class="text-red-400 font font-bold text-1xl">*</span></label>
                             <input type="" class="block w-full  px-2 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="department name">
                         </div>
                         <!--  -->

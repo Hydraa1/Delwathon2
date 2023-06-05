@@ -4,20 +4,57 @@ import {Dialog, DialogPanel, TransitionChild, TransitionRoot} from '@headlessui/
 import VeeValInput from '../../../components/VeeValInput.vue';
 import {newSubjectSchema} from '../../../schemas'
 import {useForm} from 'vee-validate';
+import Multiselect from '@vueform/multiselect';
+
+
 const open = ref(false)
 const subjects = [
-	{branch: "Dathon Limited", subjectName: "Computer Science", subjectType: "Practical", subjectCode: "CSC 401", teacher: "Mr Olawale Moses"},
-	{branch: "Dathon Limited", subjectName: "Computer Science", subjectType: "Practical", subjectCode: "CSC 401", teacher: "Mr Olawale Moses"},
-	{branch: "Dathon Limited", subjectName: "Computer Science", subjectType: "Practical", subjectCode: "CSC 405", teacher: "Mr Olawale Moses"},
-	{branch: "Dathon Limited", subjectName: "Computer Science", subjectType: "Practical", subjectCode: "CSC 401", teacher: "Mr Olawale Moses"},
-	{branch: "Dathon Limited", subjectName: "Computer Science", subjectType: "Practical", subjectCode: "CSC 401", teacher: "Mr Olawale Moses"},
-	{branch: "Dathon Limited", subjectName: "Computer Science", subjectType: "Practical", subjectCode: "CSC 401", teacher: "Mr Olawale Moses"},
-	{branch: "Dathon Limited", subjectName: "Computer Science", subjectType: "Practical", subjectCode: "CSC 401", teacher: "Mr Olawale Moses"},
-	{branch: "Dathon Limited", subjectName: "Computer Science", subjectType: "Practical", subjectCode: "CSC 401", teacher: "Mr Olawale Moses"},
-	{branch: "Dathon Limited", subjectName: "Computer Science", subjectType: "Practical", subjectCode: "CSC 401", teacher: "Mr Olawale Moses"},
+	{
+		branch: "Delwathon Foundation", 
+		subjectName: "Mathematics", 
+		subjectType: "Theory", 
+		subjectCode: "MTH 202", 
+		teacher: "Mr Olawale Moses ",
+		subjectName1: "English", 
+		subjectType1: "Theory", 
+		subjectCode1: "GNS 202", 
+		teacher1: "Mrs Makinde Florence ",
+		subjectName2: "Quantative Reasoning", 
+		subjectType2: "Practical", 
+		subjectCode2: "QR 202", 
+		teacher2: "Mr Adebayo Joseph",
+		subjectName3: "Handwriting", 
+		subjectType3: "Optional", 
+		subjectCode3: "HW 202", 
+		teacher3: "Mrs Makinde Florence",
+	},
+	{
+		branch: "Delwathon College", 
+		subjectName: "Mathematics", 
+		subjectType: "Theory", 
+		subjectCode: "MTH 101", 
+		teacher: "Mr Olawale Moses ",
+		subjectName1: "English", 
+		subjectType1: "Theory", 
+		subjectCode1: "GNS 101", 
+		teacher1: "Mrs Makinde Florence ",
+		subjectName2: "Basic Science", 
+		subjectType2: "Practical", 
+		subjectCode2: "BST 101", 
+		teacher2: "Mr Adebayo Joseph",
+	}
 ]
+ const options = [
+        'Mr Toyib Oyeniyi',  
+        'Ridwan Adelaja',
+        'olawale Moses',
+        'samuel alade',
+        'Mr Gbeniyi',
+        'Mr Damilare'
+    ]
 const state = reactive({
 	data: subjects,
+	options
 })
 const branchModal = () => {
 	open.value = true
@@ -38,9 +75,9 @@ const search = (searchText) => {
 const newSubjectInputs = [
 	{
 		name: "branch", label: "Branch", type: "select", required: true, w: 'w-full', options: [
-			{text: "Choose...", value: undefined},
-			{text: "Choose...", value: '2'},
-			{text: "Choose...", value: '3'},
+			{text: "Choose branch", value: undefined},
+			{text: "Delwathon Foundation", value: '2'},
+			{text: "Delwathon College", value: '3'},
 		]
 	},
 	{name: "subjectName", label: "Subject Name", type: "text", placeholder: "Enter subject name", required: true, w: 'w-full'},
@@ -57,8 +94,9 @@ const newSubjectInputs = [
 	{
 		name: "teacher", label: "Teacher", type: "select", required: true, w: 'w-full', options: [
 			{text: "Choose...", value: undefined},
-			{text: "Delwathon Teacher", value: '2'},
-			{text: "Delwathon Dev", value: '3'},
+			{text: "Mr Olawale Moses", value: '2'},
+			{text: "Mr Adebayo Joseph", value: '3'},
+			{text: "Mrs Makinde Adeola", value: '4'},
 		]
 	},
 ]
@@ -129,25 +167,45 @@ const submit = handleSubmit(values => {
 				<tbody class="">
 					<tr v-for="(data, i) in state.data" :key="i">
 						<td class="border-y border-x-0 border-[#ccc] ed-border p-2">
-							<div class="">{{ i }}</div>
+							<div class="">{{ i+1 }}</div>
 						</td>
 						<td class="border-y border-x-0 border-[#ccc] ed-border p-2">
 							<div class="">{{ data.branch }}</div>
 						</td>
 						<td class="border-y border-x-0 border-[#ccc] ed-border p-2">
-							<div class="">{{ data.subjectName }}</div>
+							<div class="py-4 space-y-1">
+								<p>{{ data.subjectName }}</p>
+								<p>{{ data.subjectName1 }}</p>
+								<p>{{ data.subjectName2 }}</p>
+								<p>{{ data.subjectName3 }}</p>
+								</div>
 						</td>
 						<td class="border-y border-x-0 border-[#ccc] ed-border p-2">
-							<div class="">{{ data.subjectCode }}</div>
+							<div class="space-y-1">
+								<p>{{ data.subjectCode }}</p>
+								<p>{{ data.subjectCode1 }}</p>
+								<p>{{ data.subjectCode2 }}</p>
+								<p>{{ data.subjectCode3 }}</p>
+								</div>
 						</td>
 						<td class="border-y border-x-0 border-[#ccc] ed-border p-2">
-							<div class="">{{ data.subjectType }}</div>
+							<div class="space-y-1">
+								<p>{{ data.subjectType }}</p>
+								<p>{{ data.subjectType1 }}</p>
+								<p>{{ data.subjectType2 }}</p>
+								<p>{{ data.subjectType3 }}</p>
+								</div>
 						</td>
 						<td class="border-y border-x-0 border-[#ccc] ed-border p-2">
-							<div class="">{{ data.teacher }}</div>
+							<div class="space-y-1">
+								<p>{{ data.teacher }}</p>
+								<p>{{ data.teacher1 }}</p>
+								<p>{{ data.teacher2 }}</p>
+								<p>{{ data.teacher3 }}</p>
+								</div>
 						</td>
 						<td class="border-y border-x-0 border-[#ccc] ed-border p-2">
-							<div class=" space-x-1 flex">
+							<div class=" space-x-2 flex">
 								<button @click="() => { setValues(data); branchModal() }"
 									class="bg-[#00A8594D] text-ed-green hover:bg-ed-green hover:text-white transition rounded-lg h-7 w-7 flex items-center justify-center">
 									<i class="bx bx-edit"></i></button>
@@ -182,11 +240,11 @@ const submit = handleSubmit(values => {
 						leave-from="opacity-100 translate-y-0 sm:scale-100"
 						leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
 						<DialogPanel
-							class="relative transform overflow-hidden rounded-lg  text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+							class="relative transform overflow-hidden rounded-lg text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
 							<!--ADD content here  -->
-							<div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 dark:bg-gray-800 dark:text-white">
+							<div class="bg-white px-4 pb-4 pt-5  overflow-y-auto  sm:p-6 sm:pb-4 dark:bg-gray-800 dark:text-white">
 								<!-- grid grid-cols-1 md:grid-cols-1 -->
-								<h4 class="font-medium font">Add Subject <i class="fa fa-plus-circle text-green-500"></i>
+								<h4 class="font-medium font">New Subject <i class="fa fa-plus-circle text-green-500"></i>
 								</h4>
 								<div class="mt-4 flex text-sm flex-wrap">
 									<div v-for="(input ) of newSubjectInputs" v-bind:key="input.name" class="p-1"
@@ -194,6 +252,17 @@ const submit = handleSubmit(values => {
 										<VeeValInput class="w-full" :placeholder="input.placeholder"
 											:error="errors[input.name]" :name="input.name" :type="input.type"
 											:label="input.label" :required="input.required" :options="input.options" />
+									</div>
+									<div class="w-full mt-3">
+										<label for="" class="block mb-2 text-sm font-nomal text-gray-900 dark:text-white">Teacher In-Charge *</label>
+										<Multiselect
+										:value="state.options"
+										class="text-sm rounded-lg"
+										v-model="section"
+										:options="state.options"
+										ref="multiple"
+										mode="tags"
+										/>
 									</div>
 								</div>
 							</div>
@@ -215,3 +284,4 @@ const submit = handleSubmit(values => {
 		</Dialog>
 	</TransitionRoot>
 </template>
+<style src="@vueform/multiselect/themes/default.css"></style>

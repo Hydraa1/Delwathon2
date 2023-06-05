@@ -1,13 +1,12 @@
-
 <script setup>
 import {reactive, ref} from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import Swal from 'sweetalert2'
 const sections = [
-    {branch:"Delwathon school & Primary School", section_name:"Green", capacity:"50"},
-    {branch:"Delwathon school & Primary School", section_name:"blue", capacity:"50"},
-    {branch:"Delwathon school & Primary School", section_name:"London", capacity:"80"},
-    {branch:"Delwathon school & Primary School", section_name:"German", capacity:"90"}
+    {branch:"Delwathon Foundation", section_name:"A", capacity:"50"},
+    {branch:"Delwathon Foundation", section_name:"B", capacity:"60"},
+    {branch:"Delwathon College", section_name:"Blue", capacity:"55"},
+    {branch:"Delwathon College", section_name:"Green", capacity:"70"},
 ]
 const state = reactive({
     data:sections
@@ -101,15 +100,15 @@ const removeSection = ()=>{
                     </thead>
                     <tbody style="font-size:12px">
                         <tr v-for="(data, i) of state.data" :key="i">
-                            <td class="border border-slate-300 p-2 md:p-1"> <div class="text-center">{{ i+1 }}</div></td>
-                            <td class="border border-slate-300 p-2  md:p-1"><div class="text-center">{{ data.branch }}</div></td>
-                            <td class="border border-slate-300 p-2  md:p-1"><div class="text-center"> {{ data.section_name }}</div></td>
-                            <td class="border border-slate-300 p-2  md:p-1"><div class="text-center">{{ data.capacity }}</div></td>
-                            <td class="border border-slate-300 p-2  md:p-1">
-                                <div class="text-center space-x-1 flex justify-center">
-                                    <button @click="editHandler(data)" class="bg-[#00A8594D] text-ed-green hover:bg-ed-green hover:text-white transition p-3 rounded-lg">
+                            <td class="border border-slate-300 p-1 md:p-0"> <div class="text-center">{{ i+1 }}</div></td>
+                            <td class="border border-slate-300 p-1 md:p-0"><div class="text-center">{{ data.branch }}</div></td>
+                            <td class="border border-slate-300 p-1  md:p-1"><div class="text-center"> {{ data.section_name }}</div></td>
+                            <td class="border border-slate-300 p-1  md:p-1"><div class="text-center">{{ data.capacity }}</div></td>
+                            <td class="border border-slate-300 p-1  md:p-1">
+                                <div class="text-center space-x-1 flex justify-center my-2">
+                                    <button @click="editHandler(data)" class="bg-[#00A8594D] text-ed-green hover:bg-ed-green hover:text-white transition h-7 w-7 rounded-lg">
                                         <i class="bx bx-edit"></i></button>
-                                    <button @click="removeSection(data)" class="bg-red-300 hover:bg-red-600 hover:text-white transition-all p-3 rounded-lg text-red-700"><i class="bx bx-trash"></i></button>
+                                    <button @click="removeSection(data)" class="bg-red-300 hover:bg-red-600 hover:text-white transition-all h-7 w-7 rounded-lg text-red-700"><i class="bx bx-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -122,7 +121,7 @@ const removeSection = ()=>{
 
         <!-- side over here right hand side-->
        <TransitionRoot :show="open">
-        <Dialog as="div" class="relative z-10 dark:bg-gray-700" @close="open= false">
+        <Dialog as="div" class="relative z-40 dark:bg-gray-700" @close="open= false">
           <TransitionChild as="template" enter="ease-in-out duration-500" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in-out duration-500" leave-from="opacity-100" leave-to="opacity-0">
             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
           </TransitionChild>
@@ -143,26 +142,26 @@ const removeSection = ()=>{
                     </TransitionChild>
                     <div class="font flex h-full flex-col overflow-y-scroll dark:bg-gray-700  bg-white py-6 shadow-xl">
                       <div class="px-4 sm:px-6">
-                        <DialogTitle class="text-base font-medium leading-6 text-gray-900 dark:text-white">Update</DialogTitle>
+                        <DialogTitle class="text-base font-medium leading-6 text-gray-900 dark:text-white">Edit Bue</DialogTitle>
                       </div>
                       <div class="relative mt-6 flex-1 px-4 sm:px-6">
                          <!-- The inputs is iniside sideoverInput -->
                         <div class="w-full">
-                            <label for="small" class="block mb-2 text-sm font-nomal text-gray-900 dark:text-white">Branch *</label>
+                            <label for="small" class="block mb-2 text-sm font-nomal text-gray-900 dark:text-white">Branch <span class="text-red-400 font font-bold text-1xl">*</span></label>
                             <select id="small" class="block w-full  px-2 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Select Branch</option>
-                                <option value="US">Delwathon Group of School</option>
-                                <option value="DE">Germany</option>
+                                <option value="US">Delwathon Foundation</option>
+                                <option value="DE">Delwathon College</option>
                             </select>
                         </div>
                         <!--  -->
                         <div class="w-full mt-4">
-                            <label for="small" class="block mb-2 text-sm font-nomal text-gray-900 dark:text-white">Section Name*</label>
+                            <label for="small" class="block mb-2 text-sm font-nomal text-gray-900 dark:text-white">Section Name <span class="text-red-400 font font-bold text-1xl">*</span></label>
                             <input type="" class="block w-full  px-2 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Section name">
                         </div>
                         <!--  -->
                         <div class="w-full mt-4">
-                            <label for="small" class="block mb-2 text-sm font-nomal text-gray-900 dark:text-white">Student Capacity*</label>
+                            <label for="small" class="block mb-2 text-sm font-nomal text-gray-900 dark:text-white">Student Capacity <span class="text-red-400 font font-bold text-1xl">*</span></label>
                             <input type="number" class="block w-full  px-2 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                         <!--  -->

@@ -98,31 +98,31 @@ onMounted(() => {
                     </thead>
                     <tbody style="font-size:12px">
                         <tr>
-                            <td class="border border-slate-300 p-2"> <div class="text-center">12</div></td>
-                            <td class="border border-slate-300 p-2"><div class="text-center">Delwathon limited</div></td>
-                            <td class="border border-slate-300 p-2"><div class="text-center"> del@gamil.com</div></td>
+                            <td class="border border-slate-300 p-2"> <div class="text-center">1</div></td>
+                            <td class="border border-slate-300 p-2"><div class="text-center">Delwathon Foundation</div></td>
+                            <td class="border border-slate-300 p-2"><div class="text-center">defo@delwathon.com</div></td>
                             <td class="border border-slate-300 p-2"><div class="text-center">09071841884</div></td>
-                            <td class="border border-slate-300 p-2"><div class="text-center">Adlarawale</div></td>
+                            <td class="border border-slate-300 p-2"><div class="text-center">Olubadan Avenue, Ring Road, Ibadan</div></td>
                             <td class="border border-slate-300 p-2">
-                                <div class="text-center space-x-1">
-                                    <button class="bg-green-500 p-2 rounded-lg h-9 text-white"><i class="bx bx-edit"></i></button>
-                                    <button class="bg-red-500 p-2 rounded-lg h-9 text-white"><i class="bx bx-trash"></i></button>
+                                <div class="text-center space-x-1 flex items-center justify-center">
+                                    <button class="bg-[#00A8594D] text-ed-green hover:bg-ed-green hover:text-white transition rounded-lg h-7 w-7 "><i class="bx bx-edit "></i></button>
+                                    <button class="bg-[#FF00004D] text-[#FF0000] hover:bg-[#FF0000] hover:text-white transition rounded-lg h-7 w-7"><i class="bx bx-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
                        
                         <tr>
-                            <td class="border border-slate-300 p-3"> <div class="text-center">12</div></td>
-                            <td class="border border-slate-300 ..."><div class="text-center">Delwathon limited</div></td>
-                            <td class="border border-slate-300 ..."><div class="text-center"> del@gamil.com</div></td>
+                            <td class="border border-slate-300 p-4"> <div class="text-center">2</div></td>
+                            <td class="border border-slate-300 ..."><div class="text-center">Delwathon College</div></td>
+                            <td class="border border-slate-300 ..."><div class="text-center">deco@delwathon.com</div></td>
                             <td class="border border-slate-300 ..."><div class="text-center">09071841884</div></td>
-                            <td class="border border-slate-300 ..."><div class="text-center">Adlarawale</div></td>
+                            <td class="border border-slate-300 ..."><div class="text-center">Olubadan Avenue, Ring Road, Ibadan</div></td>
                             <td class="border border-slate-300 ...">
-                                <div class="text-center space-x-1">
-                                    <button @click="showSlideOver" class="bg-green-500 p-1 py-2 px-2 rounded-md shadow-sm shadow-gray-500 text-white">
+                                <div class="text-center space-x-1 flex items-center justify-center">
+                                    <button @click="showSlideOver" class="bg-[#00A8594D] text-ed-green hover:bg-ed-green hover:text-white transition rounded-lg h-7 w-7 ">
                                       <i class="bx bx-edit"></i>
                                     </button>
-                                    <button @click="removeBranch" class="bg-red-500 p-1 py-2 px-2 rounded-md shadow-sm shadow-gray-500 text-white">
+                                    <button @click="removeBranch" class="bg-[#FF00004D] text-[#FF0000] hover:bg-[#FF0000] hover:text-white transition rounded-lg h-7 w-7">
                                       <i class="bx bx-trash"></i>
                                     </button>
                                 </div>
@@ -139,7 +139,7 @@ onMounted(() => {
 
         <!-- side over here -->
        <TransitionRoot :show="state.data">
-        <Dialog as="div" class="relative z-10 dark:bg-gray-700" @close="open= false">
+        <Dialog as="div" class="relative z-40 dark:bg-gray-700" @close="open= false">
           <TransitionChild as="template" enter="ease-in-out duration-500" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in-out duration-500" leave-from="opacity-100" leave-to="opacity-0">
             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
           </TransitionChild>

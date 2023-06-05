@@ -61,5 +61,5 @@ const scrollToTop = () => {
 					<path d="M12 20.4999V3.66992" stroke="white" stroke-width="1.5" stroke-miterlimit="10"
 						stroke-linecap="round" stroke-linejoin="round" />
 				</svg>
-			</button>
+	</button>
 </template>

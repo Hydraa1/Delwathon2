@@ -1,30 +1,65 @@
 <script setup>
 import Swal from "sweetalert2"
+import { reactive, ref } from "vue"
+import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 
-const removeFee = ()=>{
-  Swal.fire({
-  title: 'Are you sure?',
-  text: "You won't be able to revert this!",
-  icon: 'warning',
-  showCancelButton: true,
-  confirmButtonColor: '#00A859',
-  cancelButtonColor: '#d33',
-  confirmButtonText: 'Yes, delete it!',
-  preConfirm:()=>{
-    console.log("yes")
-    // alert("yes")
-  }
-  }).then((result) => {
-    if (result.isConfirmed) {
-      Swal.fire({
-       title: 'Deleted!',
-       text: 'Your file has been deleted.',
-       icon: 'success',
-       confirmButtonColor:'#00A859'
-    })
-    }
-  })
+//Decomision
+// const removeFee = (data)=>{
+//   Swal.fire({
+//   title: 'Are you sure?',
+//   text: "You won't be able to revert this!",
+//   icon: 'warning',
+//   showCancelButton: true,
+//   confirmButtonColor: '#00A859',
+//   cancelButtonColor: '#d33',
+//   confirmButtonText: 'Yes, delete it!',
+//   preConfirm:()=>{
+//     console.log("yes")
+//     // alert("yes")
+//   }
+//   }).then((result) => {
+//     if (result.isConfirmed) {
+//       Swal.fire({
+//        title: 'Deleted!',
+//        text: 'Your file has been deleted.',
+//        icon: 'success',
+//        confirmButtonColor:'#00A859'
+//     })
+//     }
+//   })
+// }
+
+const fee = [
+    {transaction_id:"#Tud123", session:"2023-02-30", date:"08 April, 2023", type:"Income", desc:"Tuition fee", amount:"₦1000", status:"Paid" },
+    {transaction_id:"#Tud133", session:"2023-02-20", date:"08 May, 2023", type:"Income", desc:"Tuition fee", amount:"₦1000", status:"Patial"},
+    {transaction_id:"#Tud133", session:"2023-02-20", date:"08 May, 2023", type:"Income", desc:"Tuition fee", amount:"₦5000", status:"Unpaid" }
+]
+const showModal = ref(false)
+const state = reactive({
+    data:fee
+})
+const preview = (data) =>{
+    console.log(data)
+    showModal.value = true
 }
+// @click="preview(each)"
+
+//search methods#############
+const search = (searchText)=>{
+    const tolower = searchText.toLowerCase();
+    const searched = fee.filter(a => (
+        a.transaction_id.toLowerCase().includes(tolower) ||
+        a.session.toLowerCase().includes(tolower) ||  
+        a.date.toLowerCase().includes(tolower) ||
+        a.type.toLowerCase().includes(tolower) ||  
+        a.desc.toLowerCase().includes(tolower)||
+        a.status.toLowerCase().includes(tolower)
+    )) 
+    state.data = searched; // data
+    console.log(state.data)
+}
+
+
 </script>
 
 <template>
@@ -54,7 +89,7 @@ const removeFee = ()=>{
                 <!--  -->
                 <div class="rounded-md border-2 dark:border-[#A4A2A2] w-full md:w-[20rem] flex space-x-2 px-2 items-center mt-4">
                     <i class='bx bx-search text-sm mt-1'></i>
-                    <input class="bg-transparent p-1 outline-none text-sm" placeholder="Search..." />
+                    <input @input="$event=>search($event.target.value)" class="bg-transparent p-1 outline-none text-sm" placeholder="Search..." />
                 </div>  
                
             </div>
@@ -75,44 +110,54 @@ const removeFee = ()=>{
                         </tr>
                     </thead>
                     <tbody style="font-size:12px">
-                        <tr>
-                            <td class="border border-slate-300 p-3"> <div class="text-center">12</div></td>
-                            <td class="border border-slate-300 p-3"><div class="text-center">#Tud123</div></td>
-                            <td class="border border-slate-300 p-3"><div class="text-center"> 2022-2023</div></td>
-                            <td class="border border-slate-300 p-2"><div class="text-center">08 April djdj2023</div></td>
-                            <td class="border border-slate-300 p-3"><div class="text-center">Income</div></td>
-                            <td class="border border-slate-300 p-3"><div class="text-center">Tuition fee</div></td>
-                            <td class="border border-slate-300 p-3"><div class="text-center">#12000</div></td>
-                            <td class="border border-slate-300 p-3"><div class="text-center">Partpayment</div></td>
+                        <tr v-for="(each, i) of state.data" :key="i">
+                            <td class="border border-slate-300 p-3"> <div class="text-center">{{i+1}}</div></td>
+                            <td class="border border-slate-300 p-3"><div class="text-center">{{each.transaction_id}}</div></td>
+                            <td class="border border-slate-300 p-3"><div class="text-center"> {{each.session}} </div></td>
+                            <td class="border border-slate-300 p-2"><div class="text-center">{{each.date}}</div></td>
+                            <td class="border border-slate-300 p-3"><div class="text-center">{{each.type}}</div></td>
+                            <td class="border border-slate-300 p-3"><div class="text-center">{{each.desc}}</div></td>
+                            <td class="border border-slate-300 p-3"><div class="text-center">{{each.amount}}</div></td>
+                            <td class="border border-slate-300 p-3">
+                                <div class="text-center" :class="[each.status=='Paid' ? 'bg-ed-green p-1  text-white rounded-md': each.status == 'Patial' ? ' bg-yellow-400 p-1  text-white rounded-md' :'bg-red-600 p-1 text-white rounded-md [font-size:12px]']">
+                                    {{each.status}}
+                                </div>
+                            </td>
                             <td class="border border-slate-300 ...">
                                 <div class="text-center space-x-1 flex justify-center">
-                                    <button class="bg-green-500 p-2 rounded-lg h-8 text-white"><i class="bx bx-edit"></i></button>
-                                    <button class="bg-red-500 p-2 rounded-lg h-8 text-white"><i class="bx bx-trash"></i></button>
+                                    <button  class="bg-[#00A8594D]  hover:bg-ed-green hover:text-white rounded-lg  h-7 w-7 text-ed-green"><i class="bx bx-show"></i></button>
                                 </div>
                             </td>
                         </tr>
                        <!--  -->
-                       <tr>
-                            <td class="border border-slate-300 p-3"> <div class="text-center">12</div></td>
-                            <td class="border border-slate-300 "><div class="text-center">#Tud123</div></td>
-                            <td class="border border-slate-300 "><div class="text-center"> 2022-2023</div></td>
-                            <td class="border border-slate-300 p-3"><div class="text-center">08 April 2023</div></td>
-                            <td class="border border-slate-300 p-3"><div class="text-center">Income</div></td>
-                            <td class="border border-slate-300 p-3"><div class="text-center">Tuition fee</div></td>
-                            <td class="border border-slate-300 p-3"><div class="text-center">#12000</div></td>
-                            <td class="border border-slate-300 p-3"><div class="text-center">Partpayment</div></td>
-                            <td class="border border-slate-300 p-3">
-                                <div class="text-center space-x-1 flex justify-center">
-                                    <button class="bg-green-500 p-2 rounded-lg h-8 text-white"><i class="bx bx-edit"></i></button>
-                                    <button @click="removeFee" class="bg-red-500 p-2 rounded-lg h-8 text-white"><i class="bx bx-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                       
-                    
                     </tbody>
                 </table>
                 <!--  -->
+                <!-- Timing Modal -->
+                <TransitionRoot as="template" :show="showModal">
+                    <Dialog as="div" class="relative z-40" @close="showModal = false">
+                    <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in duration-200" leave-from="opacity-100" leave-to="opacity-0">
+                    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+                    </TransitionChild>
+
+                    <div class="fixed inset-0 z-40 overflow-y-auto font">
+                        <form class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                            <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" enter-to="opacity-100 translate-y-0 sm:scale-100" leave="ease-in duration-200" leave-from="opacity-100 translate-y-0 sm:scale-100" leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+                                <DialogPanel class="relative transform overflow-hidden dark:bg-dark rounded-lg bg-white text-left shadow-xl transition-all  sm:my-8 w-full sm:w-full sm:max-w-xl">
+                                <div class="md:p-6 p-4">
+                                    <DialogTitle as="h3" class="text-base font-medium leading-6 text-gray-900"> Preview</DialogTitle>
+                                    <h4>Loading ......</h4>
+                                </div>
+
+                                <div class="bg-gray-50 dark:bg-dark px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 mb-4 gap-3">
+                                    <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-medium text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" @click="showModal = false" ref="cancelButtonRef">Cancel</button>
+                                </div>
+                                </DialogPanel>
+                            </TransitionChild>
+                        </form>
+                    </div>
+                    </Dialog>
+                </TransitionRoot>
             </div>
         </div>
 </template>

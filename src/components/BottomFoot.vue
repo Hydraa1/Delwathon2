@@ -25,22 +25,10 @@ const helpLinks = [
 ]
 </script>
 <template>
-	<div class="app-x relative overflow-hidden mt-20">
-		<svg class="absolute min-h-full top-5 inset-x-0" viewBox="0 0 1440 699" fill="none"
-			xmlns="http://www.w3.org/2000/svg">
-			<path
-				d="M523.467 1390.34C1101.41 1577.78 1215.88 1379.76 1626.78 1165.43C2033.58 673.901 1875.86 0.781007 974.163 0.681965C-173.69 0.555865 -186.492 13.3752 -306.217 382.533C-425.943 751.69 -54.4808 1202.9 523.467 1390.34Z"
-				fill="url(#paint0_linear_112_126)" />
-			<defs>
-				<linearGradient id="paint0_linear_112_126" x1="-203.704" y1="242.666" x2="1876.89" y2="917.446"
-					gradientUnits="userSpaceOnUse">
-					<stop stop-color="#00A859" />
-					<stop offset="1" stop-color="#003399" />
-				</linearGradient>
-			</defs>
-		</svg>
+	<div class="app-x relative overflow-hidden mt-20 " id="customfoot">
+		
 
-		<div
+		<!-- <div
 			class="p-8 flex flex-wrap [box-shadow:.1rem_-.1rem_.5rem_#ccc] mt-5 bg-white rounded-2xl items-center relative overflow-hidden">
 			<img src="../assets/logofilled.png" class="absolute hidden lg:block h-full -left-10" />
 			<div class="relative mx-auto">
@@ -50,10 +38,10 @@ const helpLinks = [
 			<button
 				className="py-2 my-2 ml-auto px-6 outline-none text-sm bg-ed-green text-white font-semibold rounded-md shadow-md">
 				Free Forever
-			</button>
-		</div>
+			</button> 
+		</div>-->
 
-		<div class="flex flex-wrap gap-10 justify-between border-b border-white relative text-white py-20 lg:pr-10">
+		<div class="flex flex-wrap gap-10 justify-between  relative text-white py-20 lg:pr-10">
 			<div class="w-full md:w-fit">
 				<img src="../assets/delthon_solution_white.png" class="h-10" />
 			</div>
@@ -90,3 +78,9 @@ const helpLinks = [
 
 	</div>
 </template>
+<style>
+#customfoot{
+	background: linear-gradient(180deg, #00A859 2.53%, #003399 104.21%);
+
+}
+</style>

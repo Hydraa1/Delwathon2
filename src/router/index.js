@@ -1,5 +1,5 @@
 import {createRouter, createWebHashHistory} from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import NewHome from '../views/NewHome.vue'
 import LoginView from '../views/LoginView.vue'
 import ForgotPasswordView from '../views/ForgotPasswordView.vue'
 import SignUp from '../views/SignUp.vue'
@@ -19,18 +19,38 @@ import Academic from '../views/admin/academics/AcademicSession.vue'
 import SubjectView from '../views/admin/academics/SubjectView.vue'
 import AssignSubjectView from '../views/admin/academics/AssignSubjectView.vue'
 import ClassSection from '../views/admin/academics/class&Section/ClassSection.vue'
+//imports for classshedule
+import Timing from "../views/admin/classSchedule/Timing.vue"
+import ClassShedule from "../views/admin/classSchedule/ClassSchedule.vue"
 
-
+// attendance
 import TodayAttend from '../views/admin/attendance/TodayAttend.vue'
 import PastAttend from '../views/admin/attendance/PastAttend.vue'
+
+// exam master
+import MarkDis from '../views/admin/exammaster/MarkDis.vue'
+import MarkEntries from '../views/admin/exammaster/MarkEntries.vue'
+import GradesScore from '../views/admin/exammaster/GradesScore.vue'
+
+// guardian imports
+import GuardianList from '../views/admin/guardian/GuardianList.vue'
+import NewGuardian from '../views/admin/guardian/NewGuardian.vue'
+import GuardianProfile from '../views/admin/guardian/GuardianProfile.vue'
+
+// setting
+import Setting from '../views/admin/setting/SettingCom.vue'
+
+//administration imports#######
+import EmployeeList from '../views/admin/employee/EmployeeList.vue'
+import EditProfile from '../views/admin/employee/EditProfile.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      name: 'newhome',
+      component: NewHome
     },
     {
       path: '/login',
@@ -96,6 +116,51 @@ const router = createRouter({
             {path: "past-attendance", component: PastAttend}
           ]
         },
+        
+        //shedule
+        {
+          path:"class-schedule", children:[
+            {path:'timing', component:Timing},
+            {path:'class-shed', component:ClassShedule}
+          ]
+        },
+        //exammaster
+        {
+          path: "exammaster",
+          children: [
+            {path: "mark-dis", component: MarkDis},
+            {path: "mark-entries", component: MarkEntries},
+            {path: "grade-score", component: GradesScore},
+          ]
+        },
+        //guardian
+        {
+          path:"guardian",
+          children:[
+            {path:"guardian-list", component: GuardianList},
+            {path:"guardian-profile", component:GuardianProfile },
+            {path:"new-guardian", component: NewGuardian}
+          ]
+        },
+        {
+          path:"setting",
+          children:[
+            {path:"settings", component: Setting},
+            
+          ]
+        },
+
+        //Administartion######
+        {
+          path:"employee", children:[
+            {path:'employee-list', children:[
+              {path:'', component:EmployeeList},
+              {path:"edit-profile", component:EditProfile}
+            
+            ]}
+          ]
+        }
+
 
       ]
     },

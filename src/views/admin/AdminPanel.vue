@@ -73,7 +73,7 @@ const changeTheme = () => {
                     <router-link :to="sub.link ?? ''" @click="state.showNav = false"
                       class="inline-flex text-gray-200 transition duration-150 items-center w-full hover:text-white text-sm font-medium">
                       <i class="bx" :class="link.icon"></i>
-                      <span class="ml-4 ">{{ sub.text }}</span>
+                      <span class="ml-4 "><i class='bx bx-label mt-2'></i> {{ sub.text }}</span>
                     </router-link>
                   </li>
                 </ul>
@@ -83,7 +83,7 @@ const changeTheme = () => {
 
           <div class="mt-7">
             <div class="py-3 px-6">
-              <h2 class="text-white font-bold">ADMINSTARTION</h2>
+              <h2 class="text-white font-bold">ADMINISTARTION</h2>
             </div>
             <ul>
               <li :class="{ 'h-fit': state.activeChildren2 == i }" v-for="(link, i) of administrationLinks"
@@ -118,7 +118,7 @@ const changeTheme = () => {
       :class="state.showNav ? '' : ''">
       <!-- appbar here -->
       <nav
-        class="shadow py-5 flex items-center px-3 md:px-10 sticky top-0 bg-inherit justify-between flex-wrap sm:flex-nowrap">
+        class="shadow z-40 py-5 flex items-center px-3 md:px-10 sticky top-0 bg-inherit justify-between flex-wrap sm:flex-nowrap">
         <div class="flex items-center w-full">
           <button @click="state.showNav = !state.showNav"
             class="rounded-full hover:bg-gray-200 transition duration-300 h-8 w-8 inline-flex justify-center items-center text-xl md:hidden">

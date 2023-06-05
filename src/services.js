@@ -161,8 +161,8 @@ export const menuLinks = [
 		text: "Dashboard",
 		icon: 'Dashboard',
 		children: [
-			{link: '/admin/dashboard', text: "Dash"},
-			{link: '#', text: "Child 1"},
+			{link: '/admin/dashboard', text: "DEFO"},
+			{link: '#', text: "DECO"},
 		]
 	},
 	{text: "Branches", link: '/admin/branches', icon: 'Branches'},
@@ -188,17 +188,17 @@ export const menuLinks = [
 		icon: 'Academics',
 		children: [
 			{link: '/admin/academics/class-session', text:"Class & Section"},
-			{link: '/admin/academics/academic-session', text: "Academic Session"},
+			// {link: '/admin/academics/academic-session', text: "Academic Session"},
 			{link: '/admin/academics/subjects', text: "Subject"},
 			{link: '/admin/academics/subjects/assign', text: "Assign Subject"}
 		]
 	},
 	{
 		text: "Class Schedule",
-		icon: 'Attendance',
+		icon: 'Schedule',
 		children: [
-			{link: '#', text:"Timing"},
-			{link: '#', text: "Class Schedule"},
+			{link: '/admin/class-schedule/timing', text:"Timing"},
+			{link: '/admin/class-schedule/class-shed', text: "Class Schedule"},
 		]
 	},
 	{
@@ -209,20 +209,23 @@ export const menuLinks = [
 			{link: '/admin/attendance/past-attendance', text: "Past"},
 		]
 	},
+	
 	{
 		text: "Guardians",
 		icon: 'Guardians',
 		children: [
-			{link: '#', text: "Child 1"},
-			{link: '#', text: "Child 1"},
+			{link: '/admin/guardian/guardian-list', text: "Guardian List"},
+			{link: '/admin/guardian/new-guardian/', text: "Add Guardian"},
 		]
 	},
 	{
 		text: "Exam Master",
 		icon: 'ExamMaster',
 		children: [
-			{link: '#', text: "Child 1"},
-			{link: '#', text: "Child 1"},
+			{link: '/admin/exammaster/mark-dis', text: "Mark Distribution"},
+			{link: '/admin/exammaster/mark-entries', text: "Mark Entries"},
+			{link: '/admin/exammaster/grade-score', text: "Grades"},
+			{link: '#', text: "Score Sheet"},
 		]
 	},
 ]
@@ -234,7 +237,7 @@ export const administrationLinks = [
 		text: "Employee",
 		icon: 'Employee',
 		children: [
-			{link: '#', text: "Child 1"},
+			{link: '/admin/employee/employee-list', text: "Employee List"},
 			{link: '#', text: "Child 1"},
 		]
 	},
@@ -247,7 +250,7 @@ export const administrationLinks = [
 		]
 	},
 	{text: "Roles & Permissions", link: '#', icon: 'RolesPermissions'},
-	{text: "Settings", link: '#', icon: 'Settings'},
+	{text: "Settings", link: '/admin/setting/settings', icon: 'Settings'},
 
 ]
 

@@ -2,14 +2,14 @@
 <script setup>
 // import {teams, teamDetails} from '../services'
 // import NavBar from '../components/NavBar.vue'
-import NewnavBar from '../components/NewnavBar.vue'
-import BottomFoot from '../components/BottomFoot.vue'
-// import TestimonialCarousel from '../components/TestimonialCarousel.vue'
-import NewTestimonial from '../components/NewTestimonial.vue'
-import FluidImg from '../components/FluidImg.vue'
-import ProjectTask from '../components/ProjectTask.vue'
-import DocDashbord from '../components/DocDashbords.vue'
-import BuiltEveryone from '../components/BuiltEveryone.vue'
+// import NewnavBar from '../components/NewnavBar.vue'
+// import BottomFoot from '../components/BottomFoot.vue'
+// // import TestimonialCarousel from '../components/TestimonialCarousel.vue'
+// import NewTestimonial from '../components/NewTestimonial.vue'
+// import FluidImg from '../components/FluidImg.vue'
+// import ProjectTask from '../components/ProjectTask.vue'
+// import DocDashbord from '../components/DocDashbords.vue'
+// import BuiltEveryone from '../components/BuiltEveryone.vue'
 
 
 const features = [
@@ -21,11 +21,14 @@ const features = [
 </script>
 
 <template>
+	<div>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi laborum rerum inventore. Vitae, quia autem nam nihil obcaecati necessitatibus perspiciatis delectus saepe, eum hic consectetur magni aspernatur. Illo, minus harum.
+	</div>
 	<!-- nav here -->
-	<NewnavBar />
+	<!-- <NewnavBar /> -->
 
 	<!-- top here -->
-	<main class="font-serif">
+	<!-- <main class="font-serif">
 		<div class="relative pb-16">
 			<svg class="absolute hidden md:block right-0 top-0 h-full" viewBox="0 0 626 917" fill="none"
 				xmlns="http://www.w3.org/2000/svg">
@@ -57,14 +60,14 @@ const features = [
 					</div>
 				</div>
 				<div class="hidden md:block w-full md:w-1/2 h-full p-3 overflow-hidden">
-					<img src="../assets/New Macbook Pro Mockup Front View (1) 1image1.png" class="min-w-[60rem] rm-drag mt-24 rounded-3xl" />
+					<img src="../assets/New Macbook Pro Mockup Front View (1) 1image1" class="min-w-[60rem] rm-drag mt-24 rounded-3xl" />
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 
 		<!-- teams here -->
-		<div class="flex items-center flex-col md:-mt-5 app-x">
+		<!-- <div class="flex items-center flex-col md:-mt-5 app-x">
 			<p class="text-[#A4A2A2] font-semibold uppercase text-center">Join 800,000+ highly productive teams</p>
 			<div class="flex justify-center items-center flex-wrap">
 				<img src="../assets/ibm.png" class="h-5" />
@@ -74,19 +77,19 @@ const features = [
 				<img src="../assets/ibm.png" class="h-5 opacity-70" />
 				<img src="../assets/samsung.png" class="h-36 opacity-20 -my-10" />
 			</div>
-		</div>
+		</div> -->
 
 
 		<!-- Project and tasks -->
-		<ProjectTask />
+		<!-- <ProjectTask /> -->
 
 
 		<!-- Docdashbords -->
-		<DocDashbord />
+		<!-- <DocDashbord /> -->
 
 
 		<!-- The platform -->
-		<div class="bg-[#00A8590D] my-10 rounded-3xl relative flex py-10 md:py-28 app-x items-center">
+		<!-- <div class="bg-[#00A8590D] my-10 rounded-3xl relative flex py-10 md:py-28 app-x items-center">
 			<div class="text-center md:text-left w-full md:w-1/2 lg:w-[40%] md:pr-16 text-[#1B1B1B] relative z-10">
 				<div class="flex space-x-4 md:space-x-8 pb-14 text-[#181C17]">
 					<span class="mx-auto md:mx-0 border-b-4 border-[#00A859] pb-1">THE PLATFORM </span>
@@ -120,20 +123,20 @@ const features = [
 			<div class="relative w-full md:w-1/2 lg:w-[60%] lg:pl-10 hidden md:block">
 				<img src="../assets/delwaton2 1image4.png" class="h-[30rem] rotate-2 w-full object-cover rm-drag rounded-3xl" />
 			</div>
-		</div>
+		</div> -->
 
 
 
 		<!-- Built for everyone -->
-		<BuiltEveryone />
+		<!-- <BuiltEveryone /> -->
 
 
 		<!--  TESTIMONIALS-->
-		<NewTestimonial />
+		<!-- <NewTestimonial /> -->
 
 
 		<!--#1 support in software  -->
-		<div
+		<!-- <div
 			class="bg-[#0033990D] my-10 rounded-3xl relative flex flex-col-reverse md:flex-row py-10 app-x md:items-center">
 			<div class="w-full md:w-1/2 flex flex-col space-y-10">
 				<div class="bg-ed-blue flex items-center justify-center h-16 w-16 rounded-xl">
@@ -160,9 +163,9 @@ const features = [
 						<p class="text-[#4F4F4F] text-sm">{{ feat }}</p>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
-			<div class="w-full sm:w-1/2 relative h-full">
+			<!-- <div class="w-full sm:w-1/2 relative h-full">
 				<svg class="w-full h-full" viewBox="0 0 746 748" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path
 						d="M606.314 195.037C688.951 448.9 812.579 480.216 701.972 666.284C456.36 854.977 -139.239 693.431 30.1745 408.68C161.358 188.185 172.53 106.255 354.199 47.118C535.868 -12.019 523.677 -58.825 606.314 195.037Z"
@@ -170,9 +173,9 @@ const features = [
 				</svg>
 				<FluidImg />
 			</div>
-		</div>
+		</div> -->
 
 		<!-- Footer -->
-		<BottomFoot />
-	</main>
+		<!-- <BottomFoot /> -->
+	<!-- </main> -->
 </template>

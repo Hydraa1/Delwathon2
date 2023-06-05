@@ -5,8 +5,10 @@ import Fees from './Fees.vue'
 import Documents from './Document.vue'
 import Guardian from './Guardian.vue';
 import Modals from './Modals.vue'
+import PromotionStud from './PromotionStud.vue'
+import ExamMark from './ExamMark.vue'
 import { initFlowbite } from 'flowbite'
-import { onMounted, reactive , ref} from 'vue'
+import { onMounted, reactive} from 'vue'
 onMounted(() => {  
     // sicscm
     initFlowbite();
@@ -17,7 +19,7 @@ const openAuth = () =>{
 }
 </script>
 <template>
-    <div class="container font md:container mx-auto p-5 md:p-5  px-3">
+    <div class="container font md:container mx-auto p p-2 md:p-5  px-3">
         <div class="">
             <h4 class="font-medium mt-4">
                 <span class="bg-[#003399] py-1 px-2 rounded-l-md text-white"> <i class="bx bx-user"></i></span> 
@@ -36,10 +38,10 @@ const openAuth = () =>{
                     </div>
                     <div class="text-center mb-3">
                         <h4 class="text-sm font-medium space-x-1">
-                            <span class=" text-[#003399] uppercase">OLAWALE</span>,
-                            <span class="capitalize">modupeola</span>
+                            <span class=" text-[#003399] uppercase">Toyibu Olaniyi </span>,
+                            <span class="capitalize">Abidogun</span>
                         </h4>
-                        <p class="text-xs capitalize space-x-1 mt-0">Student/Nursing 1 - Blue</p>
+                        <p class="text-xs capitalize space-x-1 mt-0">Student/Nursery 1 - A</p>
                     </div>
 
                 </div>
@@ -47,28 +49,31 @@ const openAuth = () =>{
             <!--  -->
             <div class="col-span-2">
                 <!--  -->
-                <div class="p-5 py-6 px-5 bg-[#00A859] rounded-md text-white">
-                    <div class="text-sm mt-4  grid grid-cols-2 md:grid-cols-3  gap-3 md:gap-0">
+                <div class="p-5 py-6 px-5 bg-gradient-to-b from-[#00b95c] to-[#2d369b]  rounded-md text-white">
+                    <div class="text-sm mt-4  grid grid-cols-2 md:grid-cols-2  gap-3 md:gap-0">
                         <div> <i class="fas fa-tools"></i>&nbsp;Dev Test </div>
-                        <div> <i class="fas fa-graduation-cap"></i> &nbsp;General</div>
-                        <div> <i class="far fa-calendar-alt"></i> &nbsp; 23, july 2030</div>
+                        <div class="mt-1"> <i class="fas fa-graduation-cap"></i> &nbsp;General</div>
+                        <div class="mt-3"> <i class="far fa-calendar-alt"></i> &nbsp; 23, july 2030</div>
                         <!--  -->
-                        <div><i class="far fa-calendar-alt"></i> Date</div>
-                        <div><i class="fa fa-location"></i> <span> Adejola No.12</span> </div>
-                        <div><i class="fa fa-location"></i> <span> Adejola</span> </div>
+                        <div class="mt-3"><i class="far fa-calendar-alt"></i> Date</div>
+                        <div class="mt-3"><i class="fa fa-location"></i> <span> Adejola No.12</span> </div>
+                        <div class="mt-3"><i class="fa fa-location"></i> <span> Adejola</span> </div>
                     </div>
-                    <div class="text-sm mt-2">
-                        <span><i class="fa fa-envelope"></i> Olawalwemodupela@delwathon.com</span>        
+                    <div class="text-sm mt-3">
+                        <span><i class="fa fa-envelope"></i>  toyibu.abidogun@delwathon.com</span>        
                     </div>
                    
                    
                 </div>
                 <!--  -->
                 <div class="flex justify-between mt-3 p-1 gap-2">
-                    <button  @click="openAuth" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"  class="bg-[#003399] text-sm w-full text-white text-center p-2 rounded-sm">
-                        <i class="fas fa-user-lock"></i>&nbsp; Authentications
+                    <button  @click="openAuth" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"  class="bg-[#003399] hidden lg:block text-sm w-full text-white text-center p-2 rounded-sm">
+                        <i class="fas fa-user-lock"></i>&nbsp; Authentication
                     </button>
-                    <button class="bg-[#5EA3FD] w-full mt-2 md:mt-0  text-sm text-center text-white p-2 rounded-sm">
+                     <button  @click="openAuth" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"  class="bg-[#003399] mt-2 text-sm w-full lg:hidden text-white text-center p-2 rounded-sm">
+                        <i class="fas fa-user-lock"></i>&nbsp; Auth
+                    </button>
+                    <button  data-modal-target="rusticate-modal" data-modal-toggle="rusticate-modal" class="bg-[#5EA3FD] w-full mt-2 md:mt-0  text-sm text-center text-white p-2 rounded-sm">
                         <i class="	fas fa-user-lock"></i>&nbsp; Rusticate
                     </button>
                     <button  @click="openAuth" data-modal-target="suspend-modal" data-modal-toggle="suspend-modal" class="bg-[#FF9D0B] w-full mt-2 md:mt-0 text-sm text-center text-white p-2 rounded-sm">
@@ -81,7 +86,7 @@ const openAuth = () =>{
         <!-- end of grid -->
         <!-- modals component for authentication, rusticate and suspend -->
         <Modals :showModal="state.data"></Modals>
-        <div class="mt-5 p-3 md:p-3">
+        <div class="mt-5 p-2 md:p-3">
            
             <div class="mb-4 border-b shadow-sm md:shadow-md  border-gray-200 dark:border-gray-700 ">
                 <ul class="flex space-x-7 relative justify-between overflow-x-auto md:gap-5 gap-1 text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
@@ -100,7 +105,7 @@ const openAuth = () =>{
                     </li>
 
                     <li class="mr-2" role="presentation">
-                        <button class="inline-block p-4 px-7 focus:px-7  border-b-2 focus:bg-[#003399] focus:text-white  border-transparenthover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="settings-tab" data-tabs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">
+                        <button class="inline-block p-4 px-7 focus:px-7  border-b-2 focus:bg-[#003399] focus:text-white  border-transparenthover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="settings-tab" data-tabs-target="#promotion-tab" type="button" role="tab" aria-controls="promotion-tab" aria-selected="false">
                             <i class='bx bxl-graphql font-medium text-lg'></i> <br>
                             Promotion
                         </button>
@@ -135,14 +140,14 @@ const openAuth = () =>{
                 <div class="hidden p-1 md:p-4 rounded-lg  dark:dark:bg-dark" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
                     <Fees/>
                 </div>
-                <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-dark" id="settings" role="tabpanel" aria-labelledby="settings-tab">
-                    <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Settings tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
+                <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-dark" id="promotion-tab" role="tabpanel" aria-labelledby="promotion-tab">
+                   <PromotionStud/>
                 </div>
                 <div class="hidden p-1 md:p-4 rounded-lg dark:bg-dark" id="guardian" role="tabpanel" aria-labelledby="contacts-tab">
                    <Guardian></Guardian>
                 </div>
                 <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="exammark" role="tabpanel" aria-labelledby="exammark">
-                    <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Contacts tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
+                    <ExamMark/>
                 </div>
                 <div class="hidden p-0 md:p-4 rounded-lg bg-gray-50 dark:bg-dark" id="docs" role="tabpanel" aria-labelledby="docs-tab">
                     <Documents/>
