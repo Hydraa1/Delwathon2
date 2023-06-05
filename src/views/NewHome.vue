@@ -40,13 +40,13 @@
                 <p class="text-center text-gray-400 font-medium text-md  mt-10 md:pt-10">Join 800,000+ highly productive teams</p>
                 <div class="flex flex-wrap place-content-center md:space-x-8 lg:space-x-24 sm:space-y-0 sm:space-x-6 md:space-y-0 space-y-6 mt-8 ">
                     <!-- <div> -->
-                        <img src="../assets/Carthon color png 1pic2.png" alt="carton" class="w-[304px] h-[62px] brightness-100">
+                        <img src="../assets/Carthoncolorpic2.png" alt="carton" class="w-[304px] h-[62px] brightness-100">
                     <!-- </div> -->
                     <!-- <div> -->
-                        <img src="../assets/Eduthon png 2pic3.png" alt="" class="w-[304px] h-[62px] brightness-100">
+                        <img src="../assets/eduthonpic.png" alt="" class="w-[304px] h-[62px] brightness-100">
                     <!-- </div> -->
                     <!-- <div> -->
-                        <img src="../assets/Resthon color png 1pic4.png" alt="" class="w-[304px] h-[62px] brightness-100">
+                        <img src="../assets/resthonpic.png" alt="" class="w-[304px] h-[62px] brightness-100">
                     <!-- </div> -->
                 </div>
             </div>

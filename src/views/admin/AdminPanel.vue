@@ -51,7 +51,7 @@ const changeTheme = () => {
         <div>
           <div class="mx-auto ml-4">
             <router-link to="/" class="flex  space-x-1 pt-7 items-center font-bold  md:text-white text-2xl">
-              <img src="../../assets/logo_text_white.png" className="w-40 rm-drag" />
+              <img src="../../assets/eduthonwhitelogo.png" className="w-40 rm-drag" />
             </router-link>
           </div>
           <div class="mt-7">

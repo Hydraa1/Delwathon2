@@ -2,7 +2,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 mt-10">
         <div class="bg-blue-900 hidden lg:block w-ful px-6 py-14 ">
             <div class="w-[536px] h-[622px] relative xl:ml-40 lg:ml-10">
-                <img src="../assets/Rectangle 1597pic4.png" alt="" class="brightness-100 z-20 top-5 absolute w-[536px] h-[622px] my-auto">
+                <img src="../assets/projectask.png" alt="" class="brightness-100 z-20 top-5 absolute w-[536px] h-[622px] my-auto">
                 <div class="absolute z-30 space-y-3 bottom-3 -right-20">
                     <div class="  bg-white  flex z-30 px-20 rounded-md">
                         <i class='bx bx-check mr-1 font-extrabold  text-3xl text-ed-blue'></i><span class="my-auto font-medium text-ed-blue text-1xl">Eduthon</span>

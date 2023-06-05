@@ -28,7 +28,7 @@
         <div class=" hidden lg:block bg-ed4-green w-ful  py-14">
            
             <div class="relative lg:w-[595px] lg:h-[616px] md:w-[430px] md:right-24 lg:right-52 my-auto ">
-                <img src="../assets/delwaton2 1pic7.png" alt="" class="w-[595px] h-[616px] absolute ">
+                <img src="../assets/platformpic.png" alt="" class="w-[595px] h-[616px] absolute ">
             </div>
         </div>
     </div>

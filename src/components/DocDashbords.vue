@@ -7,20 +7,20 @@
         </div>
         <div v-if="showbody1 == 1">
             <h3 class="text-4xl md:text-4xl md:w-full text-center font-semibold mx-auto max-w-lg leading-tight">The world's most powerful (and fun) Docs.</h3>
-            <img src="../assets/delwaton 2pic6.png" class="rm-drag mt-10  drop-shadow-md rounded-3xl brightness-100" />
+            <img src="../assets/docdashpic.png" class="rm-drag mt-10  drop-shadow-md rounded-3xl brightness-100" />
         </div>
 
         <!-- 222222 -->
         <div v-if="showbody1 == 2">
             <h3 class="text-4xl md:text-4xl text-center font-semibold mx-auto max-w-lg leading-tight">Bring your ideas to
                 life with Whiteboards.</h3>
-            <img src="../assets/delwaton 2pic6.png" class="rm-drag mt-10  drop-shadow-md rounded-3xl brightness-100" />
+            <img src="../assets/docdashpic.png" class="rm-drag mt-10  drop-shadow-md rounded-3xl brightness-100" />
         </div>
 
         <!-- 333 -->
         <div v-if="showbody1 == 3">
             <h3 class="text-4xl md:text-4xl text-center font-semibold mx-auto max-w-lg leading-tight">See how you're doing in real-time with Dashboards.</h3>
-            <img src="../assets/delwaton 2pic6.png" class="rm-drag mt-10  drop-shadow-md rounded-3xl brightness-100" />
+            <img src="../assets/docdashpic.png" class="rm-drag mt-10  drop-shadow-md rounded-3xl brightness-100" />
         </div>
     </div>
 </template>

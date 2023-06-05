@@ -30,7 +30,7 @@
 
 			<div class="hidden md:block relative">
 				<img src="../assets/svgpicone.png" alt="" class="absolute -top-10 right-0">
-				<img src="../assets/delwaton2 2pic10.png" alt="" class="h-[536px] w-[545px]">
+				<img src="../assets/platformpic.png" alt="" class="h-[536px] w-[545px]">
 				<img src="../assets/svgpictwo.png" alt="" class="absolute -bottom-10 -right-10 xl:-right-36">
 			</div>
 		</div>
