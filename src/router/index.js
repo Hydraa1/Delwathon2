@@ -41,8 +41,31 @@ import GuardianProfile from '../views/admin/guardian/GuardianProfile.vue'
 import Setting from '../views/admin/setting/SettingCom.vue'
 
 //administration imports#######
+//emplyeee routes
 import EmployeeList from '../views/admin/employee/EmployeeList.vue'
 import EditProfile from '../views/admin/employee/EditProfile.vue'
+import AddEmployee from '../views/admin/employee/AddEmployee.vue'
+import AddDesignation from '../views/admin/employee/AddDesignation.vue'
+import AddDepartment from '../views/admin/employee/NewDepartment.vue'
+//stduent accounting routes imports
+import FeeBreakDown from '../views/admin/accounting/FeeBreakdown.vue'
+import FeeGroup from '../views/admin/accounting/FeeGroup.vue'
+import Pricing from '../views/admin/accounting/Pricing.vue'
+
+// office accounting
+import AccPage from '../views/admin/oaccounting/AccPage.vue'
+import AllTrans from '../views/admin/oaccounting/AllTrans.vue'
+import NewDeposite from '../views/admin/oaccounting/NewDeposite.vue'
+import NewExpense from '../views/admin/oaccounting/NewExpense.vue'
+import VouchHead from '../views/admin/oaccounting/VouchHead.vue'
+
+import NewPricing from '../views/admin/accounting/NewPricing.vue'
+import FeeAsign from '../views/admin/accounting/FeeAsign.vue'
+import Invoice from '../views/admin/accounting/Invoice.vue'
+import Fines from '../views/admin/accounting/Fines.vue'
+import SetupFine from '../views/admin/accounting/SetFine.vue'
+//role and permition imports
+import RolePermition from '../views/admin/role/rolePermition.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -157,10 +180,44 @@ const router = createRouter({
               {path:'', component:EmployeeList},
               {path:"edit-profile", component:EditProfile}
             
+            ]},
+            {path:"add-employee", component:AddEmployee},
+            {path:'new-designation', component:AddDesignation},
+            {path:'new-department', component:AddDepartment}
+          ]
+        },
+        //student accounting 
+        {
+          path:"accounting", children:[
+            {path:"fee-breakdown", component:FeeBreakDown},
+            {path:"fee-group", component:FeeGroup},
+            {path:"pricing", component:Pricing},
+            {path:"new-pricing", component:NewPricing},
+            {path:"fee-assign", component:FeeAsign},
+            {path:"invoice", component:Invoice},
+            {path:'fines', component:Fines},
+            {path:'setup-fine', component:SetupFine}
+          ]
+        },
+        //role and permition
+        {
+          path:"role", children:[
+            {path:'permition', children:[
+              {path:'', component:RolePermition}
             ]}
           ]
-        }
+        },
 
+        // office accounting
+        {
+          path:"oaccounting", children:[
+            {path:"acc-page", component:AccPage },
+            {path:"all-trans", component:AllTrans},
+            {path:"new-deposite", component:NewDeposite},
+            {path:"new-expense", component:NewExpense},
+            {path:"vouch-head", component:VouchHead}
+          ]
+        }
 
       ]
     },

@@ -30,10 +30,10 @@ const routeToEdit = () =>{
 
                         <div class="flex justify-center mt-4  space-x-2">
                             <button class="h-7 w-7 bg-green-100 text-ed-green hover:bg-ed-green hover:text-white rounded-md">
-                                <i class="fa fa-eye"></i>
+                              <i class="bx bx-show"></i>
                             </button>
                             <button  @click="routeToEdit" class="h-7 w-7 bg-blue-200 text-blue-700 hover:bg-blue-800 hover:text-white rounded-md font-medium">
-                                <i class="fa fa-edit"></i>
+                               <i class="bx bx-edit"></i>
                             </button>
                             <button class="h-7 w-7 bg-red-100 text-red-700 hover:bg-red-800 hover:text-white rounded-md font-medium"><i class='bx bxs-user-pin'></i></button>
                         </div>
@@ -54,10 +54,10 @@ const routeToEdit = () =>{
 
                         <div class="flex justify-center mt-4  space-x-2">
                             <button class="h-7 w-7 bg-green-100 text-ed-green hover:bg-ed-green hover:text-white rounded-md">
-                                <i class="fa fa-eye"></i>
+                                <i class="bx bx-show"></i>
                             </button>
                             <button class="h-7 w-7 bg-blue-200 text-blue-700 hover:bg-blue-800 hover:text-white rounded-md font-medium">
-                                <i class="fa fa-edit"></i>
+                               <i class="bx bx-edit"></i>
                             </button>
                             <button title="revoke user" class="h-7 w-7 bg-red-100 text-red-700 hover:bg-red-800 hover:text-white rounded-md font-medium"><i class='bx bxs-user-pin'></i></button>
                         </div>

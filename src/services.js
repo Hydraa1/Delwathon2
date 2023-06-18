@@ -238,18 +238,35 @@ export const administrationLinks = [
 		icon: 'Employee',
 		children: [
 			{link: '/admin/employee/employee-list', text: "Employee List"},
-			{link: '#', text: "Child 1"},
+			{link: '/admin/employee/add-employee', text: "Add Employee"},
+			{link: '/admin/employee/new-designation', text: "Add Designation"},
+			{link: '/admin/employee/new-department', text: "Add Department"},
 		]
 	},
 	{
 		text: "Student Accounting",
 		icon: 'StudentAccounting',
 		children: [
-			{link: '#', text: "Child 1"},
-			{link: '#', text: "Child 1"},
+			{link: '/admin/accounting/fee-breakdown', text: "Fee Breakdown"},
+			{link: '/admin/accounting/fee-group', text: "Fee Group"},
+			{link: '/admin/accounting/pricing', text:"Pricing"},
+			{link: '/admin/accounting/fee-assign', text:"Fee Assign"},
+			{link: '/admin/accounting/fines', text:"Setup Fines"},
+			{link: '/admin/accounting/invoice', text:"Pay Fees/Invoice"}
 		]
 	},
-	{text: "Roles & Permissions", link: '#', icon: 'RolesPermissions'},
+	{
+		text: "Office Accounting",
+		icon: 'StudentAccounting',
+		children: [
+			{link: '/admin/oaccounting/acc-page', text: "Accounts"},
+			{link: '/admin/oaccounting/new-deposite', text: "New Deposit"},
+			{link: '/admin/oaccounting/new-expense', text:"New Expense"},
+			{link: '/admin/oaccounting/all-trans', text:"All Transaction"},
+			{link: '/admin/oaccounting/vouch-head', text:"Voucher Heads"}
+		]
+	},
+	{text: "Roles & Permissions", link: '/admin/role/permition', icon: 'RolesPermissions'},
 	{text: "Settings", link: '/admin/setting/settings', icon: 'Settings'},
 
 ]

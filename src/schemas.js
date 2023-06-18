@@ -66,3 +66,9 @@ export const guardianSchema = toTypedSchema(
 	})
 )
 
+export const employeeEditSchema = toTypedSchema(
+	zod.object({
+		firstname: zod.string().nonempty('firstname is required'),
+		lastname: zod.string().nonempty('lastname is required'),
+	})
+)

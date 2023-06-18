@@ -145,7 +145,7 @@ let yy = "year1"
                     </div>
                     <!--  -->
                     <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="thirdterm" role="tabpanel" aria-labelledby="thirdterm">
-                         <div class=" border border-[#003399] rounded-md">
+                        <div class=" border border-[#003399] rounded-md">
                             <h2 class="[font-size:13px] mt-2 ml-3 uppercase">2021-2022 - Third TERM MARKS</h2>
                             <div class="border-l-0 border-r-0 p-3 border-2 border-[#003399]  mt-2 mb-2">
                                 <div class="relative overflow-x-auto">

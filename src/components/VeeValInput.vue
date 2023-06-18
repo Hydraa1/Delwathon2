@@ -33,7 +33,8 @@ console.log(value)
 		</select>
 		<textarea v-else-if="type == 'textarea'" v-model="value" :type="type ?? 'text'" rows="10"
 			class="app-input w-full text-sm placeholder:text-[#A4A2A2] dark:placeholder:text-[#4F4F4F] h-full"
-			:placeholder="placeholder" :class="type == 'file' ? 'p-0 pr-2 file:bg-[#A4A2A2] file:' : ''"></textarea>
+			:placeholder="placeholder" :class="type == 'file' ? 'p-0 pr-2 file:bg-[#A4A2A2] file:' : ''">
+		</textarea>
 		<Multiselect v-else-if="type == 'tags'"
 			class="text-sm rounded-lg"
 			v-model="section"

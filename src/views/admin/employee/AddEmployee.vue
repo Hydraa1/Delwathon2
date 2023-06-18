@@ -86,21 +86,32 @@ const state = reactive({})
 
 <template>
     <div class="container font md:container mx-auto p-3 md:p-4">
-        <div class="flex  justify-between items-center">
-            <h2 class="font-medium text-sm uppercase mt-4 md:mt-0">Edit Profile</h2>
-            <div class="[font-size:12px] mt-4 md:mt-0">Dashboard Employee Edit Details</div>
+         <div class="flex  justify-between items-center">
+            <h2 class="font-medium text-sm uppercase mt-4 md:mt-0">Add Employee</h2>
+            <div class="[font-size:12px] mt-4 md:mt-0">Dashboard Add New Employee </div>
         </div>
-         <div class="shadow-sm my-1 p-2 flex flex-wrap mt-6">
+        <div class="ed-shadow rounded-xl mt-5 mb-4 block  py-10 px-5">
+			<div class="w-full max-w-md mx-auto">
+                <label for="small" class="block mb-2 text-sm font-nomal text-gray-900 dark:text-white">Branch <span class="text-red-400 font font-bold text-1xl">*</span></label>
+                    <select id="small" v-model="select92"  class="block w-full  px-2 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="" selected>Select Branch</option>
+                        <option value="FO">Delwathon Foundation</option>
+                        <option value="CO">Delwathon College</option>
+                    </select>
+            </div>
+			<div class="mt-4 flex justify-end">
+				<button @click="displayarea" class="rounded-md px-7 py-2 md:text-xs bg-[#003399] font-normal text-white hover:bg-blue-600">Proceed <i class="fas fa-right-long ml-3"></i></button>
+			</div>
+			
+		</div>
+        <div class="shadow-sm my-1 p-2 flex flex-wrap mt-6">
             <div v-for="(input) of inputs" v-bind:key="input.name" class="p-2" :class="input.w">
                 <VeeValInput class="w-full" :placeholder="input.placeholder" :error="errors[input.name]" :name="input.name"
                     :type="input.type" :val="input.value"  :label="input.label" :required="input.required" :options="input.options" />
             </div>
             <div class="flex justify-center mt-3 mb-5 w-full mx-auto">
-                  <button class="bg-[#003399] py-2 px-6 rounded-md text-white text-sm"><i class="fa fa-save"></i> Update</button>
+                  <button class="bg-[#003399] py-2 px-6 rounded-md text-white text-sm"><i class="fa fa-save"></i> Submit</button>
             </div>
         </div>
-        <!-- <div class="mt-4">
-           
-        </div> -->
     </div>
 </template>

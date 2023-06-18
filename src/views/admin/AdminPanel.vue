@@ -44,7 +44,7 @@ const changeTheme = () => {
   <div class="flex font  max-h-screen bg-slate-400">
 
     <!-- sidenav here -->
-    <div class="flex fixed md:static h-screen z-20 transition-all duration-500"
+    <div class="flex fixed md:static h-screen z-50 transition-all duration-500"
       :class="state.showNav ? 'bg-[#00000093] w-screen md:w-fit' : 'bg-transparent w-fit pointer-events-none md:pointer-events-auto'">
       <div :class="state.showNav ? '' : '-translate-x-full md:translate-x-0'"
         class="transition-all duration-500  h-full min-w-[16rem]  w-64 overflowed bg-gradient-to-b from-[#00b95c] to-[#2d369b]">
@@ -55,6 +55,12 @@ const changeTheme = () => {
             </router-link>
           </div>
           <div class="mt-7">
+            <div class="flex justify-center">
+              <img src="../../assets/erin-lindford.jpeg" class="w-24 h-24 rounded-full border-2 border-gray-50">
+              <!-- <div class=" ">
+
+              </div> -->
+            </div>
             <div class="py-3 px-6">
               <h2 class="text-white font-bold">MENU</h2>
             </div>
@@ -62,7 +68,7 @@ const changeTheme = () => {
               <li :class="{ 'h-fit': state.activeChildren == i }" v-for="(link, i) of menuLinks"
                 class=" py-3 px-6 h-12 transition-[height] overflow-hidden duration-500" v-bind:key="link.text">
                 <router-link :to="link.link ?? ''" @click="updateActiveChildren(i)"
-                  class="inline-flex text-gray-200 transition duration-150 items-center w-full hover:text-white text-sm font-medium">
+                  class="inline-flex text-gray-200 transition delay-700 ease-out duration-700  items-center w-full hover:text-white text-sm font-medium">
                   <SVGIcon :name="link.icon" />
                   <span class="ml-4 ">{{ link.text }}</span>
                   <i v-if="link.children" class='ml-auto bx text-xl'
@@ -71,7 +77,7 @@ const changeTheme = () => {
                 <ul v-if="link.children">
                   <li class=" py-3 px-6" v-for="sub of link.children" v-bind:key="sub.text">
                     <router-link :to="sub.link ?? ''" @click="state.showNav = false"
-                      class="inline-flex text-gray-200 transition duration-150 items-center w-full hover:text-white text-sm font-medium">
+                      class="inline-flex text-gray-200  transition delay-700 duration-300  items-center w-full hover:text-white text-sm font-medium">
                       <i class="bx" :class="link.icon"></i>
                       <span class="ml-4 "><i class='bx bx-label mt-2'></i> {{ sub.text }}</span>
                     </router-link>
@@ -97,11 +103,11 @@ const changeTheme = () => {
                     :class="state.activeChildren == i ? 'bx-chevron-up' : 'bx-chevron-down'"></i>
                 </router-link>
                 <ul v-if="link.children">
-                  <li class=" py-3 px-6" v-for="sub of link.children" v-bind:key="sub.text">
+                  <li class=" py-2 px-6" v-for="sub of link.children" v-bind:key="sub.text">
                     <router-link :to="sub.link ?? ''" @click="state.showNav = false"
-                      class="inline-flex text-gray-200 transition duration-150 items-center w-full hover:text-white text-sm font-semibold">
+                      class="inline-flex text-gray-200 transition duration-150 items-center w-full hover:text-white text-sm font-medium">
                       <i class="bx" :class="link.icon"></i>
-                      <span class="ml-4 ">{{ sub.text }}</span>
+                      <span class="ml-4 "><i class='bx bx-label mt-2'></i> {{ sub.text }}</span>
                     </router-link>
                   </li>
                 </ul>
